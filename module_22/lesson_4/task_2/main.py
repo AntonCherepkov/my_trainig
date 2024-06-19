@@ -8,7 +8,8 @@ def count_letters(word):
     }
 
 
-def is_palindrome(count_dict):
+def is_palindrome(in_word):
+    count_dict = count_letters(in_word)
     numb_even_grouper = 0
     numb_odd_grouper = 0
     for letter, counter in count_dict.items():
@@ -22,9 +23,19 @@ def is_palindrome(count_dict):
         return True
 
 
-for word in 'asdddsa', 'adddaaghkkll':
-    count_let = count_letters(word)
-    print(is_palindrome(count_let))
-
-
-
+path_file = os.path.abspath(os.path.join('words.txt'))
+path_errors_log = os.path.abspath(os.path.join('errors.log'))
+with open(path_file, 'r', encoding='utf-8') as in_file:
+    for word in in_file:
+        try:
+            if word.endswith('\n'):
+                word = word.rstrip('\n')
+            if not word.isalpha():
+                raise TypeError
+        except TypeError as exc:
+            with open(path_errors_log, 'a', encoding='utf-8') as errors_file:
+                errors_file.write(
+                    'Найдено число в слове '
+                    + word
+                    + '\n'
+                )
