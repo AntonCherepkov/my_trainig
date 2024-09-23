@@ -55,6 +55,7 @@ def fibbonachi_numbers_gen(count_iter: int = 0, started_num: int = 0, ended_num:
         ended_num = next_num
         yield ended_num
 
+
 def show_work(func: Callable[..., Any], time_work: float, value: Union[Generator[int, None, None], float, int]) -> None:
     """
     Вывод на экран имени функции, её назначения и времени последнего прогона
