@@ -1,0 +1,6 @@
+5
+1) V.Petrov 98
+2) P.Sergeev 92
+3) I.Dultcev 85
+4) S.Suchiy 85
+5) S.Ivanov 81
