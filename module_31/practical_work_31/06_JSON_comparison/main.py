@@ -1,5 +1,6 @@
 from typing import Optional, Dict, List, Union, Any
 import json
+from pprint import pprint
 
 
 ValueType = Union[str, int, float, List[Any], Dict[str, Any]]
@@ -81,7 +82,7 @@ diff_list = ["services", "staff", "datetime"]
 print(f'Все изменения, выбранные пользователем для контроля: {diff_list}:')
 result_dct = find_control_struct(new_json, old_json, diff_list)
 
-print(result_dct)
+pprint(result_dct)
 
 with open('result_json.json', 'w', encoding='utf-8') as f:
     json.dump(result_dct, f, indent=4)
